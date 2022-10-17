@@ -10,26 +10,27 @@
     --ff-heading: 'Staatliches', cursive;
     --ff-texting: 'Palanquin', sans-serif;
 
-    --fc-heading: rgb(68, 66, 68);
-    --fc-fundo: #2d352b;
-    --fc-footer: rgb(211, 124, 97);
+    --fc-heading: rgb(100, 86, 228);
+    --fc-fundo: #12e75949;
+    --fc-hb: rgb(211, 133, 97);
     --fc-span: #FEEAFA;
+    --fc-fundoH1: #dae7ac;
+
+    --fs-heading: clamp(1rem, 4rem + 4vw, 2rem);
 }
 
 body {
     background: var(--fc-fundo);
-    margin: 10rem 50vw;
     display: grid;
     justify-content: space-evenly;
     justify-items: center; 
 }
 
 header {
-    background: var(--fc-heading);
+    background:  linear-gradient(to top, #8864ec80, #deeea5, #ab77f0);
     position: relative;
     height: 100%;
     min-width: 39.4rem;
-    border: solid var(--fc-footer) 2px;
 }
 
 header img {
@@ -51,41 +52,51 @@ header h1 {
     font-size: 4.0rem;
     line-height: 3.4rem;
     letter-spacing: 1rem;
+    color: rgb(240, 133, 106);
+    text-shadow: 0px 2px 2px rgb(0, 0, 0);
+    text-align: center;
 
-    color: var(--fc-footer);
-    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-    padding: 5px;
     width: 100%;
     border-radius: 8px;
     
-    text-align: center;
-    background: var(--fc-fundo);
-
+    background: var(--fc-fundoH1);
+    
     position: absolute;
+    padding: 5px;
     margin-top: -9.0rem;
 }
 
 header .content-text p {
     width: 30.5rem;
+    margin: 0 auto 3rem auto;
+
+    line-height: 2.2rem;
+    letter-spacing: 2px;;
 
     text-align: center;
+
+    color: rgb(87, 85, 85);
+    text-shadow: rgb(187, 186, 186) 1px 1px 1px;
+    
     font-family: var(--ff-texting);
-    color: white;
     font-style: normal;
-    letter-spacing: 2px;;
     font-weight: 400;
     font-size: 1.7rem;
-    line-height: 2.2rem;
-    margin: 5px auto 3rem auto;
 }
 
 header .content-text p:before {
     content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem voluptatum, reprehenderit quibusdam veniam obcaecati eaque ratione quia ipsam velit illum animi libero earum quisquam iusto quis explicabo ea similique repellendus!';
 }
 
-main {
-    display: block;
-    border: solid var(--fc-footer) 2px;
+header .social {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+header .social img {
+    width: 5rem;
+    margin: 0;
+    border: 2px var(--fc-hb) solid;
 }
 
 main .section-gallery {
@@ -95,55 +106,48 @@ main .section-gallery {
     
     display: grid;
     justify-content: center;
-    
-    background-image: linear-gradient(to top, #9c9c9c80, #303b2e, #0f160f);
+    background-image: linear-gradient(to top,  #8bad74, #deeea5, #8864ec80);
 }
 
 .section-gallery .card:hover {
-    opacity: .9;
+    opacity: 1;
 }
 
 .section-gallery .card {
     position: relative;
     min-height: 100%;
     padding-top: 3.5rem;
+    opacity: 0.7;
 }
 
 .section-gallery .card img {
     width: 100%;
     height: 100%;
-    border-radius: 0px;
-    border: solid var(--fc-footer) 2px;
-    object-fit: cover;
+    object-fit: fill;
     border-radius: 8px;
 }
 
 .section-gallery .card span {
     background: var(--fc-span);
-    font-size: 2.0rem;
     font-family: var(--ff-span);
+    font-size: var(--fs-heading);
     font-weight: 400;
+    color: black;
 
     border-radius: 28px;
-    width: 11.2rem;
-    height: 3.5rem;
-    text-align: center;
-    padding-top: 4px;
 
-    top: 5rem;
-    right: 3rem;
-    position: absolute;
-}
-
-footer {
-    background: var(--fc-footer);
-    min-width: 42.4rem;
     display: flex;
-    justify-content: space-evenly;
-    padding: 5px;
+    position: absolute;
+    height: 3.5rem;
+    width: 11rem;
+    top: 2rem;
+    right: 1.2vw;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
 }
 
-/*PRIMEIRO MEDIA DE 900PX*/
+/*MEDIA DE 900PX*/
 
 @media (min-width: 900px){
     body{
@@ -151,164 +155,68 @@ footer {
         display: grid;
         grid-template-areas: 
         "header gallery"
-        "header gallery"
-        "footer footer";
-    }
-    main .section-gallery{
-        padding: 2rem 2rem 2rem 3rem;
-        gap: 3.2rem;
-        grid-template-areas: 1fr 1fr 1fr;
-        grid-template-columns: max-content;
-        grid-area: gallery;
-        width: 60rem;
-        height: 60rem;
-        justify-content: normal;
-    }
-    .section-gallery{
-        width: 60rem;
-    }
-    .card span:hover{
-        transform: translateY(-50px);
-    }
-    .section-gallery .card:nth-child(1){
-        grid-column: 1/2;
-        grid-row: 1/2;
-        width: 18rem;
-    }
-    .section-gallery .card:nth-child(2){
-        grid-column: 2/3;
-        grid-row: 1/3;
-    }
-    .section-gallery .card:nth-child(3){
-        grid-column: 3/4;
-        grid-row: 1/2;
-    }
-    .section-gallery .card:nth-child(4){
-        grid-column: 1/2;
-        grid-row: 2/4;
-        padding: 0;
-        width: 18rem;
-        box-shadow: black 4px 10px 20px;
-    }
-    .section-gallery .card:nth-child(5){
-        grid-column: 2/3;
-        grid-row: 3/4;
-        padding: 0;
-        box-shadow: black 4px 10px 20px;
-    }
-    .section-gallery .card:nth-child(6){
-        grid-column: 3/4;
-        grid-row: 2/4;
-        padding: 0;
-        box-shadow: black 4px 10px 20px;
-    }
-    .section-gallery span{
-        display: flex;
-        width: 8vw;
-        font-size: 1.3vw;
-        top: 0;
-        right: 1.2vw;
-        padding: 0;
-        justify-content: center;
-        align-items: center;
-    }
-    .section-gallery .card{
-        padding-top: 0;
-    }
-}
-
-/*SEGUNDO MEDIA DE 1480PX*/
-
-@media (min-width: 1480px){
-    body{
-        margin: 10rem auto;
-        display: grid;
-        grid-template-areas: 
-        "header gallery"
-        "header gallery"
-        "footer footer";
+        "header gallery";
     }
     header .content-text p:before {
         content: 'Helit illum animi libero earum quisquam iusto quis explicabo ea similique repellendus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem voluptatum, reprehenderit quibusdam veniam obcaecati eaque ratione quia ipsam velit illum animi libero earum quisquam iusto quis explicabo ea similique repellendus!';
     }
     header{
-        margin-left: 50vh;
         grid-area: header;
-        border-right: none;
-    }
-    main{
-        margin-right: 50vh;
     }
     main .section-gallery{
-        padding: 2rem 2rem 2rem 3rem;
-        gap: 3.2rem;
-        grid-template-areas: 1fr 1fr 1fr;
+        padding: 2rem;
+        gap: 1rem;
         grid-template-columns: max-content;
         grid-area: gallery;
-        width: 100rem;
         height: 70rem;
-        justify-content: normal;
+        background-image: linear-gradient(to top, #8864ec80, #deeea5, #ab77f0);
     }
     .section-gallery .card:nth-child(1){
         grid-column: 1/2;
         grid-row: 1/2;
-        width: 29rem;
     }
     .section-gallery .card:nth-child(2){
         grid-column: 2/3;
-        grid-row: 1/3;
+        grid-row: 1/3; 
     }
     .section-gallery .card:nth-child(3){
         grid-column: 3/4;
         grid-row: 1/2;
-        
     }
     .section-gallery .card:nth-child(4){
         grid-column: 1/2;
-        grid-row: 2/4;
-        padding: 0;
-        width: auto;
-        box-shadow: black 4px 10px 20px;
+        grid-row: 2/4; 
+        box-shadow: black 0 10px 20px 0;
     }
     .section-gallery .card:nth-child(5){
         grid-column: 2/3;
         grid-row: 3/4;
-        padding: 0;
-        box-shadow: black 4px 10px 20px;
+        box-shadow: black 0 10px 20px 0;
     }
     .section-gallery .card:nth-child(6){
         grid-column: 3/4;
         grid-row: 2/4;
-        padding: 0;
-        box-shadow: black 4px 10px 20px;
+        box-shadow: black 0 10px 20px 0;
     }
     .section-gallery .card{
         padding-top: 0;
+        width: 22vw;
     }
-    .section-gallery .card span{
-        display: flex;
-        width: 8vw;
-        font-size: 1.3vw;
-        top: 1vw;
-        right: 1.2vw;
-        padding: 0;
-        justify-content: center;
-        align-items: center;
-        color: black;
+    .card img{
+        border: solid var(--fc-hb) 2px;
     }
-    footer{
-        grid-area: footer;
-        min-width: 42.3rem;
-        margin-left: -1004px;
+    .card span:hover{
+        display: none;
     }
 }
 
 /*KEYFRAMES*/
 
+/*keyframes span dentro dos cards*/
 @keyframes ToRight {
     0%{
         transform: translateX(150px);
-        background: var(--fc-footer);
+        background: var(--fc-hb);
     }
     100%{
         background: var(--fc-span);
@@ -318,4 +226,40 @@ footer {
 
 .card span{
     animation: 0.8s cubic-bezier(0.14, 0.57, 0.7, 0.6) ToRight;
+}
+
+/*keyframes header img*/
+@keyframes ToDown {
+    0%{
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    50%{
+        opacity: .5
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+header img{
+    animation: 1s ToDown;
+}
+
+/*keyframes h1 e text no header*/
+@keyframes Opacity {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: .5;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+header h1 {
+    animation: 1.5s Opacity;
 }
